@@ -1,0 +1,7 @@
+<html>
+  <body>
+    <% messages.forEach(message => { %>
+      <p><strong><%= message.user %>:</strong> <%= message.text %> <small><%= message.added.toLocaleString() %></small></p>
+    <% }); %>
+  </body>
+</html>
