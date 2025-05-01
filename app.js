@@ -23,9 +23,9 @@ app.set("view engine", "ejs");
     res.render("index", {messages:messages});
   });
 
-express.Router.get("/new", (req, res) => {
-  res.render("form", )
-})
+  app.get("/new", (req, res) => {
+    res.render("form", {form:form});
+  });
 
   const PORT = 3000;
   app.listen(PORT, () => {
