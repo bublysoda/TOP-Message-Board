@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("node:path");
 const app = express();
+const newRouter = require("./routes/new")
+app.use(express.urlencoded({ extended: true }));
+
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -23,9 +26,19 @@ app.set("view engine", "ejs");
     res.render("index", {messages:messages});
   });
 
+
   app.get("/new", (req, res) => {
-    res.render("form", {form:form});
+    res.render("form");
   });
+
+  app.post('/new', (req, res) => {
+    res.send()
+    req.body.text()
+    req.body.user()
+    messages.push({ text: text, user: uer, added: new Date() });
+    res.redirect("/")
+  })
+
 
   const PORT = 3000;
   app.listen(PORT, () => {

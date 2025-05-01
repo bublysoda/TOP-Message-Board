@@ -1,9 +1,13 @@
-<form method="POST" action="/new">
-    <h1>New message</h1>
-    <form class="form">
-        <input type="text" class="text">
-        <input type="text" class="user">
-        <input type="submit" value="">
+<html>
+<body>
+    <form method="POST" action="/new">
+        <button onclick="window.location.href='http://localhost:3000'">Go To Messages</button>
+        <h1>New message</h1>
+        <form class="form">
+            <input type="text" name="text">
+            <input type="text" name="user">
+            <input type="submit" value="SUBMIT">
+        </form>
     </form>
- </form>
- 
+</body>
+</html>
