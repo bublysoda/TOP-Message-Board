@@ -8,22 +8,21 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-
+const messages = [
+  {
+    text: "Hi there!",
+    user: "Amando",
+    added: new Date()
+  },
+  {
+    text: "Hello World!",
+    user: "Charles",
+    added: new Date()
+  }
+];
   
   app.get("/", (req, res) => {
-    const messages = [
-      {
-        text: "Hi there!",
-        user: "Amando",
-        added: new Date()
-      },
-      {
-        text: "Hello World!",
-        user: "Charles",
-        added: new Date()
-      }
-    ];
-    res.render("index", {messages:messages});
+    res.render("index", {messages});
   });
 
 
@@ -33,9 +32,8 @@ app.set("view engine", "ejs");
 
   app.post('/new', (req, res) => {
     res.send()
-    req.body.text()
-    req.body.user()
-    messages.push({ text: text, user: uer, added: new Date() });
+    const { text, user } = req.body;
+    messages.push({ text: text, user: user, added: new Date() });
     res.redirect("/")
   })
 

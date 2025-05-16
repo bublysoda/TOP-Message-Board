@@ -3,7 +3,11 @@
     <button onclick="window.location.href='http://localhost:3000/new'">Go To Form</button>
     <h1>Messages:</h1>
     <% messages.forEach(message => { %>
-      <p><strong><%= message.user %>:</strong> <%= message.text %> <small><%= message.added.toLocaleString() %></small></p>
+      <p>
+        <strong><%= message.user %>:</strong>
+        <%= message.text %>
+        <small><%= message.added.toLocaleString() %></small>
+      </p>
     <% }); %>
   </body>
 </html>
