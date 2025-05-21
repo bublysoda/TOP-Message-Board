@@ -3,9 +3,10 @@ const path = require("node:path");
 const app = express();
 
 // ✅ This must be outside the route
+let ID = 2
 const messages = [
-  { text: "Hi there!", user: "Amando", added: new Date() },
-  { text: "Hello World!", user: "Charles", added: new Date() },
+  { text: "Hi there!", user: "Amando", added: new Date(), ID: ID-1},
+  { text: "Hello World!", user: "Charles", added: new Date(), ID: ID },
 ];
 
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +28,7 @@ app.post("/new", (req, res) => {
   const { text, user } = req.body;
   messages.push({ text, user, added: new Date() });
   console.log('Message posted')
+  ID++
   res.redirect("/");
 });
 
